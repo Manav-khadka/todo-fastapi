@@ -1,8 +1,13 @@
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Define the MongoDB URI
+uri = os.getenv("MONGO_URI")
 
-client = MongoClient("mongodb+srv://manav:manav@todo.diluwwn.mongodb.net/?retryWrites=true&w=majority&appName=todo")
+client = MongoClient(uri)
 
 db = client.todo
 
